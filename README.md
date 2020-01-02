@@ -16,7 +16,6 @@ func main() {
     }
     agln := gracenet.NewGraceListener(ln, 5 * time.Minute) // setting grace period
     httpError := make(chan error, 1)
-    ch := make(chan string)
     go func() {
         mux := http.NewServeMux()
         err = http.Serve(agln, mux)
